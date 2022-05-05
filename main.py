@@ -1,16 +1,18 @@
+#imports
 from turtle import Turtle, Screen
 from random import randint
 
-from sqlalchemy import false
-
+#screen and dimensions
 screen = Screen()
 screen.setup(width=500, height=400)
+
+#initialize essential variables
 user_bet = screen.textinput(title="Place your bet", prompt="Which turtle will win the race? Choose a color: ")
 decided = False
-
 colors = ["violet", "indigo", "blue", "green", "yellow", "orange", "red"]
 turtles = []
 
+#initialize turtles
 for i in range(0, 7):
     turt = Turtle(shape="turtle")
     turt.color(colors[i])
@@ -18,9 +20,11 @@ for i in range(0, 7):
     turt.goto(-230, (150-(i*50)))
     turtles.append(turt)
 
+#starts game
 if user_bet:
     decided = True
 
+#completes loop and functionality of game
 while decided:
     for turt in turtles:
         if turt.xcor() > 230:
